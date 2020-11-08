@@ -1,0 +1,66 @@
+#!/bin/bash
+
+pilihan_option_one(){
+	echo -n "Masukan Nama    : "
+	read nama
+	echo -n "Masukan Kelas   : "
+	read kls
+	echo -n "Masukan NPM     : "
+	read npm
+	echo -n "Masukan Jurusan : "
+	read jrsn
+	echo "Nama	: $nama "
+	echo "Kelas	: $kls "
+	echo "NPM	: $npm "
+	echo "Jurusan	: $jrsn "
+}
+
+pilihan_option_two(){
+	pass="kepo";
+	read -sp "Password : " word;
+		if [ $pass == $word ]
+		then
+			echo "Login Sukses"
+		else
+			echo "Password Salah"
+		fi
+}
+
+pilihan_option_three(){
+	for ang in {1..10}
+	do
+		echo "Angka : $ang"
+	done
+}
+
+press_enter(){
+	echo ""
+	echo -n "	Tekan Enter	"
+	read
+	clear
+}
+
+incorrect_pil(){
+	echo "Pilihan Salah ! Coba Lagi"
+}
+
+until [ "$pil" = "4" ];
+	do
+		clear
+		echo "		Menu		"
+		echo "	1. Biodata		"
+		echo "	2. Percabangan		"
+		echo "	3. Perulangan		"
+		echo "	4. Keluar		"
+		echo ""
+		echo "	Masukan Pilihan :	"
+		read pil
+		echo ""
+	case $pil in
+		1 ) clear; pilihan_option_one; press_enter ;;
+		2 ) clear; pilihan_option_two; press_enter ;;
+		3 ) clear; pilihan_option_three; press_enter ;;
+		4 ) clear; exit ;;
+		* ) clear; incorrect_pil; press_enter ;;
+	esac
+	done
